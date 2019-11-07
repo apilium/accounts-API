@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Application Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.min.css">
+    <link rel="stylesheet" href="static/css/home.css">
+    <script
+      src="http://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1 class="banner">Account Application</h1>
+        <div class="section editor">
+            <label for="customerID">Account ID
+                <input id="customerID" type="text" />
+            </label>
+            <br />
+            <label for="balance">Initial Credit
+                <input id="balance" type="number" step="any" min="0" oninput="validity.valid||(value='');"/>
+            </label>
+            <br />
+            <button id="update">Create</button>
+            <button id="reset">Reset</button>
+        </div>
+        <div class="users">
+            <table>
+                <caption>Users</caption>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Balance</th>
+                        <th>Transactions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="error">
+        </div>
+    </div>
+</body>
+<script src="static/js/home.js"></script>
+</html>

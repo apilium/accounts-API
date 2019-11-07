@@ -1,0 +1,115 @@
+swagger: "2.0"
+info:
+  description: This is Accounts API's swagger file which contains the following methods
+  version: "1.0.0"
+  title: Accounts API Swagger UI
+consumes:
+  - application/json
+produces:
+  - application/json
+
+basePath: /api
+
+# Paths supported by the server application
+paths:
+  /users:
+    get:
+      operationId: users.read_all
+      tags:
+        - Users
+      summary: Read the entire list of users
+      description: Read the list of users
+      parameters:
+        - name: length
+          in: query
+          type: integer
+          description: Number of users to get from users
+          required: false
+        - name: offset
+          in: query
+          type: integer
+          description: Offset from beginning of list where to start gathering users
+          required: false
+      responses:
+        200:
+          description: Successfully read users list operation
+          schema:
+            type: array
+            items:
+              properties:
+                customerID:
+                  type: string
+                fname:
+                  type: string
+                lname:
+                  type: string
+                balance:
+                  type: string
+                transactions:
+                  type: array
+                  items:
+                    type: string
+
+  /users/{customerID}:
+    get:
+      operationId: users.read_one
+      tags:
+        - Users
+      summary: Read one user from the users list
+      description: Read one user from the users list
+      parameters:
+        - name: customerID
+          in: path
+          description: Customer ID of the user to get from the list
+          type: string
+          required: True
+      responses:
+        200:
+          description: Successfully read user from users list operation
+          schema:
+            properties:
+              customerID:
+                type: string
+              fname:
+                type: string
+              lname:
+                type: string
+              balance:
+                type: string
+              transactions:
+                type: array
+                items:
+                  type: string
+
+    put:
+      operationId: users.update
+      tags:
+        - Users
+      summary: Update a user in the users list
+      description: Update a user in the users list
+      parameters:
+        - name: customerID
+          in: path
+          description: Customer ID of the user to update in the list
+          type: string
+          required: True
+        - name: user
+          in: body
+          schema:
+            type: object
+            properties:
+              customerID:
+                type: string
+              fname:
+                type: string
+              lname:
+                type: string
+              balance:
+                type: string
+              transactions:
+                type: array
+                items:
+                  type: string
+      responses:
+        200:
+          description: Successfully updated user in users list
